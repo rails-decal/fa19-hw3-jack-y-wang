@@ -1,0 +1,17 @@
+
+<% @cities.each do |city| %> <!--@cities should be an array of the cities made by the controller-->
+<!-- In between these two ruby tags, put your code for displaying a city! -->
+<% if not city.nil? %>
+	<h2> <%= city.name %></h2>
+	<% temperature = (9.0/5) * (city.weather[:temperature] - 273) + 32 %>
+	<% description = city.weather[:description] %>
+	<p>
+		<b> Weather: </b> It's <%= temperature %>°F and it looks like <%= description %> <br>
+	   	<b> Population:</b> <%= city.population %> <br>
+		<b> Landmark: </b> <%= city.landmark %> <br>
+	</p>
+	<%= link_to '<button type="button">Update</button>'.html_safe, cities_update_path(:city => city.name, :population => city.population, :landmark => city.landmark)%>
+<% end %>
+<% end %>
+<br> <br>
+<%= link_to '<button type="button">Create a new city</button>'.html_safe, cities_new_path%>
