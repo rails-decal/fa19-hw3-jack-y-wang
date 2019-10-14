@@ -4,7 +4,6 @@ Rails.application.routes.draw do
 
   get '/cities/new', to: 'cities#new'
   post '/cities/view', to: 'cities#create'
-  #get '/cities/create', to: redirect('/cities/view')
 
 
   get '/cities/update', to: 'cities#update'
